@@ -6,6 +6,10 @@
 # Homebrew 설치
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+# 이 저장소 클론
+git clone https://github.com/ChangJoo-Park/mac-dev-setup
+cd mac-dev-setup
+
 # Brewfile 실행
 brew bundle
 ```
@@ -64,7 +68,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 ## 터미널
 
   - iTerm2
-  - iTerm2 Color Scheme - Adventure Time
+  - iTerm2 Color Scheme - [Adventure Time](https://github.com/mbadolato/iTerm2-Color-Schemes/blob/master/schemes/AdventureTime.itermcolors)
   - zsh
 ```
 # zsh 을 기본으로 설정
@@ -75,12 +79,23 @@ chsh -s /bin/zsh
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 ```
   - zsh theme - [spaceship](https://github.com/denysdovhan/spaceship-zsh-theme)
+```shell
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+
+# ./zshrc 에 테마 설정
+ZSH_THEME="spaceship"
 ```
-npm install -g spaceship-prompt
+  - zsh autosuggestion
+```shell
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ```
+
   - ssh-keygen
 ```
 ssh-keygen -t rsa -b 4096 -C "pcjpcj2@gmail.com"
+cat ~/.ssh/id_rsa.pub | pbcopy
 ```
 
 
@@ -93,6 +108,10 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
   - Heroku
   - NVM
   - git
+```
+git config --global user.name "ChangJoo Park"
+git config --global user.email "pcjpcj2@gmail.com"
+```
   - TaskWarrior
   - openssl
   - mas
@@ -101,6 +120,15 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 ## 언어
 
   - Ruby
+```bash
+# rbenv in ~/.zshrc
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+source ~/.zshrc
+
+# rbenv 문제로 Ruby를 설치할 수 없을 때, 2.5.0은 사용할 Ruby 버전
+RUBY_CONFIGURE_OPTS=--with-readline-dir="$(brew --prefix readline)" rbenv install 2.5.0
+```
   - Python 
   - Node.js
   - Vue CLI 3.x

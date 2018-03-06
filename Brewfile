@@ -2,13 +2,13 @@
 tap "caskroom/cask"
 tap "caskroom/fonts"
 tap "caskroom/drivers"
+tap "luckyframework/homebrew-lucky"
 
 # brew installs
 brew "zsh"
 brew "zsh-completions"
 brew "git"
 brew "mas"
-brew "postgresql"
 brew "sqlite"
 brew "wget"
 brew "heroku"
@@ -20,6 +20,13 @@ brew "lucky"
 brew "node"
 brew "yarn"
 brew "task"
+brew "bdw-gc"
+brew "gmp"
+brew "libevent"
+brew "libxml2"
+brew "libyaml"
+brew "llvm"
+brew "tig"
 
 # brew cask install dev-tools
 cask "iterm2"
@@ -44,6 +51,7 @@ cask "popclip"
 cask "yakyak"
 cask "slack"
 cask "boom-3d"
+cask "alfred"
 
 # brew cask install browsers
 cask "google-chrome"
@@ -52,7 +60,7 @@ cask "google-chrome"
 cask "logitech-options"
 
 # brew cask install fonts
-cask "fira-code"
+cask "font-fira-code"
 
 # Mac Appstore
 mas "Xcode", id: 497799835
